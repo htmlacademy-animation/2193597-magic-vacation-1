@@ -241,6 +241,7 @@
     display: block;
     color: inherit;
     padding: 0 0.5em 0.5em;
+    transition: color .4s ease;
 
     &::after {
       content: "";
@@ -249,8 +250,10 @@
       width: 100%;
       height: 2px;
       background-color: $c-light;
-      display: none;
+      transform: scaleX(0);
       left: 0;
+      transition: transform .4s ease, color .4s ease;
+      transform-origin: 100% 50%;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -267,18 +270,22 @@
 
     &.active {
       &::after {
-        display: block;
+        transform: scaleX(1);
+        transform-origin: 0 0;
       }
     }
 
     &:hover,
     &:focus {
-      color: $c-purple;
-      outline: none;
-
-      &::after {
-        opacity: 1;
-        background-color: $c-purple;
+      &:not(.active) {
+        color: $c-purple;
+        outline: none;
+  
+        &::after {
+          transform: scaleX(1);
+          transform-origin: 0 0;
+          background-color: $c-purple;
+        }
       }
     }
   }

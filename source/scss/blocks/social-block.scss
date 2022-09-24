@@ -1,12 +1,5 @@
 .social-block {
   position: relative;
-
-  &:hover {
-    .social-block__list {
-      opacity: 1;
-      pointer-events: auto;
-    }
-  }
 }
 
 .social-block__toggler {
@@ -35,6 +28,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width .4s ease, height .4s ease, border-color .4s ease, background-color .4s ease;
   }
 
   svg {
@@ -51,20 +45,6 @@
     &::before {
       width: 112.5%;
       height: 112.5%;
-    }
-  }
-
-  &:focus {
-    color: $c-purple;
-    outline: none;
-
-    &::before {
-      border-color: $c-purple;
-    }
-
-    & + .social-block__list {
-      opacity: 1;
-      pointer-events: auto;
     }
   }
 
@@ -87,8 +67,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
-  pointer-events: none;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -114,6 +92,19 @@
     pointer-events: auto;
   }
 
+  &.active {
+    li {
+      transform: scale(1);
+      transition: transform .3s ease;
+      &:nth-child(2) {
+        transition: transform .3s ease .2s;
+      }
+      &:nth-child(3) {
+        transition: transform .3s ease .4s; 
+      }
+    }
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -127,24 +118,15 @@
     }
   }
 
-  &:hover {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  &:focus-within {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .social-block--active & {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    transform: scale(0);
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      transition: transform .3s ease .1s;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +150,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: color .4s ease, background-color .4s ease, border-color .4s ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
