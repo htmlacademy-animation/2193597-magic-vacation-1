@@ -10,6 +10,8 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transform: scale(0);
+  transition: transform .5s cubic-bezier(.3, .85, .62, 1.4) .3s;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
