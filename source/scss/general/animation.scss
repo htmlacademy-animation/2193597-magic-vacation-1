@@ -1,0 +1,18 @@
+body {
+  &.load {
+    .page-header__logo {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .page-header__nav {
+      opacity: 1;
+    }
+    .social-block__toggler {
+      transform: scale(1);
+    }
+    .screen__footer.first {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
