@@ -41,7 +41,7 @@
   }
 
   &:hover,
-  .social-block--active & {
+  &.social-block--active {
     color: $c-purple;
 
     &::before {
