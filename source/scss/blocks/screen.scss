@@ -397,4 +397,19 @@
 
 .screen--rules {
   background-color: $c-dark;
+  &.active {
+    .rules__item {
+      &::before {
+        transform: scale(1);
+      }
+      p {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .rules__link {
+      transform: scale(1);
+      color: #5f458c;
+    }
+  }
 }
