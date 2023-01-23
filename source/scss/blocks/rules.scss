@@ -184,7 +184,7 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
-    transform: scale(0);
+    transform: scale(1);
     transition: transform .4s cubic-bezier(.17,.67,.54,1.43) .1s;
 
     @media (max-width: $tablet) and (orientation: portrait) {
