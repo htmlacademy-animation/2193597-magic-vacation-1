@@ -11,9 +11,19 @@
   }
 
   &.active {
-    .intro__message {
+    .intro__content {
+      opacity: 1;
+    }
+    .intro__title {
       opacity: 1;
       transform: translateY(0);
+    }
+    .slider__item-title,
+    .prizes__title,
+    .rules__title,
+    .game__title {
+      opacity: 1;
+      transform: translateX(0);
     }
     .slider {
       .swiper-slide {
@@ -389,9 +399,101 @@
   opacity: 0;
   pointer-events: none;
 
+  .flamingo,
+  .leaf-right,
+  .leaf-left,
+  .leaf-green,
+  .suitcase {
+    position: absolute;
+    transform: translate3d(-50%, 0, 0);
+    opacity: 0;
+  }
+
+  .leaf-left,
+  .leaf-right {
+    width: 28rem;
+    z-index: 0;
+  }
+  .leaf-right {
+    left: calc(50% + 18rem);
+    bottom: 20rem;
+  }
+  .leaf-left {
+    left: calc(50% - 17rem);
+    bottom: 9rem;
+    transform-origin: center right;
+    transition: transform .4s cubic-bezier(.03,.25,.69,1.17);
+  }
+  .leaf-green {
+    left: calc(50% + 20rem);
+    bottom: 17rem;
+    width: 36rem;
+    z-index: 1;
+  }
+  .leaf-right,
+  .leaf-green {
+    transform-origin: center left;
+  }
+  .suitcase {
+    bottom: 10rem;
+    left: 50%;
+    width: 36rem;
+    transform: translate3d(-50%, 0, 0) rotate(-10deg);
+    z-index: 2;
+  }
+  .flamingo {
+    left: calc(50% - 8rem);
+    bottom: 12rem;
+    width: 22rem;
+    opacity: 0;
+    z-index: 3;
+  }
+
   &.screen--show {
     opacity: 1;
     pointer-events: auto;
+
+    .suitcase {
+      animation: suitcase-move-up .4s cubic-bezier(.17,.67,.7,1.18) .2s forwards;
+    }
+    .flamingo {
+      animation: flamingo-move-up .5s linear .2s forwards, flamingo-vibration 1.3s linear .8s infinite alternate;
+    }
+    .leaf-left {
+      animation: leaf-left-show 1.2s ease-out .4s forwards;
+    }
+    .leaf-right,
+    .leaf-green {
+      animation: leaf-right-show 1.2s ease-out .4s forwards;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .suitcase {
+      width: 22rem;
+    }
+    .leaf-left,
+    .leaf-right {
+      width: 14rem;
+    }
+    .leaf-left {
+      left: calc(50% - 8rem);
+      bottom: 10rem;
+    }
+    .leaf-right {
+      left: calc(50% + 8rem);
+      bottom: 18rem;
+    }
+    .flamingo {
+      bottom: 11rem;
+      left: calc(50% - 4rem);
+      width: 14rem;
+    }
+    .leaf-green {
+      left: calc(50% + 10rem);
+      bottom: 15rem;
+      width: 14rem;
+    }
   }
 }
 
