@@ -15,6 +15,95 @@ body {
       transform: translateY(0);
     }
   }
+  &.light-purple {
+    .page-header__menu {
+      a {
+        &:hover {
+          &:not(.active) {
+            color: $c-dark;
+
+            &::after {
+              background-color: $c-dark;
+            }
+          }
+        }
+      }
+    }
+    .social-block__link {
+      &:hover {
+        color: $c-dark;
+      }
+    }
+  }
+  &.blue {
+    .social-block__toggler {
+      color: $c-dark-blue;
+    }
+    .page-header__menu {
+      a {
+        &:hover {
+          &:not(.active) {
+            color: $c-dark-blue;
+
+            &::after {
+              background-color: $c-dark-blue;
+            }
+          }
+        }
+      }
+    }
+    .social-block__link {
+      &:hover {
+        color: $c-dark-blue;
+      }
+    }
+  }
+  &.light-blue {
+    .social-block__toggler {
+      color: $c-blue;
+    }
+    .page-header__menu {
+      a {
+        &:hover {
+          &:not(.active) {
+            color: $c-blue;
+
+            &::after {
+              background-color: $c-blue;
+            }
+          }
+        }
+      }
+    }
+    .social-block__link {
+      &:hover {
+        color: $c-blue;
+      }
+    }
+  }
+  &.basic-color {
+    .social-block__toggler {
+      color: $c-purple !important;
+    }
+    .page-header__menu {
+      a {
+        &:hover {
+          &:not(.active) {
+            color: $c-purple !important;
+
+            &::after {
+              background-color: $c-purple !important;
+            }
+          }
+        }
+      }
+    }
+    .social-block__link {
+      &:hover {
+        color: $c-purple !important;
+      }
+    }
+  }
 }
 
 @keyframes suitcase-move-up {

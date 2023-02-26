@@ -40,6 +40,11 @@
           }
         }
       }
+      .slider__control--next,
+      .slider__control--prev {
+        opacity: 1;
+        transform: translateX(0) rotate(0);
+      }
     }
     #message-field {
       transform: scaleX(1);
