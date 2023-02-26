@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+let body = document.querySelector(`body`);
 
 export default class FullPageScroll {
   constructor() {
@@ -59,6 +60,13 @@ export default class FullPageScroll {
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
+      if (this.activeScreen === 1) {
+        body.classList.add(`light-purple`);
+        body.classList.remove(`basic-color`);
+      } else {
+        body.classList.remove(`light-purple`);
+        body.classList.add(`basic-color`);
+      }
     }, 100);
   }
 
